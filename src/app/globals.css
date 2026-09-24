@@ -1,0 +1,316 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+:root {
+  --background: var(--color-surface-base);
+  --foreground: var(--color-text-primary);
+}
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 17.5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18.5px;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 19.5px;
+  }
+}
+
+/* Expanded container widths site-wide for generous, high-impact breathing room with content side padding */
+.max-w-7xl,
+.max-w-6xl,
+.max-w-5xl,
+.max-w-4xl,
+.max-w-3xl,
+.container {
+  padding-left: clamp(2rem, 6.5vw, 6.5rem) !important;
+  padding-right: clamp(2rem, 6.5vw, 6.5rem) !important;
+}
+
+.max-w-7xl {
+  max-width: 88rem !important;
+}
+.max-w-6xl {
+  max-width: 78rem !important;
+}
+.max-w-5xl {
+  max-width: 70rem !important;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--font-line-height-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility Focus Visible Standard */
+:focus-visible:not(input):not(textarea):not(select) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Base interactive transitions */
+a, button {
+  transition: all var(--motion-duration-instant) var(--motion-ease-default);
+}
+
+/* Clear, accessible placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+/* ========================================================================= */
+/* HERO SHOWCASE: FLOATING PIECES & SMOOTH SCROLLING ANIMATIONS              */
+/* ========================================================================= */
+
+@keyframes heroFloat1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0.4deg);
+  }
+}
+
+@keyframes heroFloat2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(9px) rotate(-0.5deg);
+  }
+}
+
+@keyframes heroFloatSubtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes heroMarqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes eqBar1 {
+  0%, 100% { height: 6px; }
+  50% { height: 18px; }
+}
+
+@keyframes eqBar2 {
+  0%, 100% { height: 16px; }
+  50% { height: 7px; }
+}
+
+@keyframes eqBar3 {
+  0%, 100% { height: 10px; }
+  50% { height: 22px; }
+}
+
+@keyframes eqBar4 {
+  0%, 100% { height: 20px; }
+  50% { height: 11px; }
+}
+
+@keyframes eqBar5 {
+  0%, 100% { height: 8px; }
+  50% { height: 19px; }
+}
+
+.animate-hero-float-1 {
+  animation: heroFloat1 5s ease-in-out infinite;
+}
+
+.animate-hero-float-2 {
+  animation: heroFloat2 6s ease-in-out infinite 0.5s;
+}
+
+.animate-hero-float-subtle {
+  animation: heroFloatSubtle 4s ease-in-out infinite 1s;
+}
+
+.animate-hero-marquee {
+  display: flex;
+  width: max-content;
+  animation: heroMarqueeScroll 26s linear infinite;
+}
+
+.animate-hero-marquee:hover {
+  animation-play-state: paused;
+}
+
+.eq-bar-1 { animation: eqBar1 1.2s ease-in-out infinite; }
+.eq-bar-2 { animation: eqBar2 0.9s ease-in-out infinite; }
+.eq-bar-3 { animation: eqBar3 1.4s ease-in-out infinite; }
+.eq-bar-4 { animation: eqBar4 1.1s ease-in-out infinite; }
+.eq-bar-5 { animation: eqBar5 1.3s ease-in-out infinite; }
+
+/* ========================================================================= */
+/* ORBIT RINGS (ANTICLOCKWISE) & TWINKLING STARS ANIMATIONS                  */
+/* ========================================================================= */
+
+@keyframes spinCounterClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.82);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.22);
+    filter: drop-shadow(0 0 8px rgba(0, 102, 255, 0.7));
+  }
+}
+
+.animate-spin-counter-slow {
+  animation: spinCounterClockwise 55s linear infinite;
+}
+
+.animate-spin-counter-mid {
+  animation: spinCounterClockwise 38s linear infinite;
+}
+
+.animate-spin-counter-fast {
+  animation: spinCounterClockwise 24s linear infinite;
+}
+
+.animate-star-twinkle-1 {
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.animate-star-twinkle-2 {
+  animation: starTwinkle 4.2s ease-in-out infinite 1.2s;
+}
+
+.animate-star-twinkle-3 {
+  animation: starTwinkle 2.6s ease-in-out infinite 0.7s;
+}
+
+.animate-star-twinkle-4 {
+  animation: starTwinkle 3.8s ease-in-out infinite 2s;
+}
+
+/* ========================================================================= */
+/* ENGINEERING LIFE & ANIMATED COMPONENTS                                   */
+/* ========================================================================= */
+
+@keyframes cardFadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulseGlowRing {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 102, 255, 0);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes shimmerPass {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(25deg);
+  }
+}
+
+.animate-card-enter {
+  animation: cardFadeInSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlowRing 2.5s infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+.animate-shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: transform 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.animate-shimmer-hover:hover::after {
+  transform: translateX(100%) rotate(25deg);
+}
+
+
+
